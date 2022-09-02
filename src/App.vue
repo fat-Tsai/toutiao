@@ -1,6 +1,6 @@
 <template>
   <div>
-    黑马头条移动端
+    <!-- 路由占位符 -->
     <router-view/>
   </div>
 </template>

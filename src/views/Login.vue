@@ -40,7 +40,7 @@ import { mapMutations } from 'vuex'
 import { Notify } from 'vant'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'login',
+  name: 'Login',
   data() {
     return {
       // 表单内数据
@@ -74,7 +74,7 @@ export default {
           message: '登录成功',
           duration: 2000
         })
-        this.$router.push('/')
+        this.$router.replace('/')
       }
       if (res.response.data.message === '手机号或验证码不正确') {
         this.isLoading = false

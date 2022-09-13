@@ -13,7 +13,9 @@
         </van-nav-bar>
         <!-- 头部下方 文章分类的导航栏 -->
         <van-tabs :active="active" sticky offset-top="1.22666667rem" swipeable>
-          <van-tab v-for="item in userChannel" :key="item.id" :title="item.name">{{item.name}}</van-tab>
+          <van-tab v-for="item in userChannel" :key="item.id" :title="item.name">
+            <art-list :channelId="item.id"></art-list>
+          </van-tab>
         </van-tabs>
         <!-- 频道管理图标 -->
         <van-icon name="plus" size="12" class="plus" />
@@ -21,7 +23,8 @@
 </template>
 
 <script>
-import { getUserChannelAPI } from '@/api/homeApi'
+import { getUserChannelAPI } from '@/api/homeAPI.js'
+import ArtList from '@/components/ArtList.vue'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Home',
@@ -30,6 +33,9 @@ export default {
       active: 0,
       userChannel: []
     }
+  },
+  components: {
+    ArtList
   },
   methods: {
     onClickTab(name, title) {
@@ -72,7 +78,7 @@ export default {
   background-color: white;
   // background-color: #000;
 }
-// 频道管理图标样式
+// 频道管理 右侧图标样式
 .plus {
   position: fixed;
   top: 58px;
